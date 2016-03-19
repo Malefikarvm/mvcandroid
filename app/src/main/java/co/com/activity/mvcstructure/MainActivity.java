@@ -17,8 +17,8 @@ import co.com.activity.mvcstructure.Util.Useful;
 public class MainActivity extends AppCompatActivity {
 
     private final Context CONTEXT = MainActivity.this;
-    /*private Useful use;
-    private Test test;*/
+    private Useful use;
+    private Test test;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,30 +29,16 @@ public class MainActivity extends AppCompatActivity {
         startActivity(intent);
         use = new Useful(CONTEXT);
         test = new Test(use.dbConn());
-        test.insertIntoField("description", 142093);
+        test.insertIntoField("description", "some");
         Hashtable result = test.searchAll();
         Hashtable data  = (Hashtable) result.get(0);
         System.out.println("DATO: "+data.get("_id"));
         System.out.println("DATO: " + data.get("description"));
         System.out.println(test.search("_id", "description", 142093));
-/
-        test.insertIntoField("description", 1);
-        test.insertIntoField("description", 2);
-        test.insertIntoField("description", 3);
-        test.insertIntoField("description", 4);
-        test.insertIntoField("description", 5);
-        test.insertIntoField("description", 6);
-        test.insertIntoField("description", 7.8);
+
+        test.insertIntoField("description", "love");
 
         test.updateRecord("description", "hello world", 2);
-        Hashtable result = test.searchAll();
-        for(int i=0; i<result.size(); i++){
-            Hashtable data  = (Hashtable) result.get(i);
-            System.out.println( "_id: "+data.get("_id"));
-            System.out.println( "valor: "+data.get("description"));
-        }
-        System.out.println(test.search("description","_id", 2));
-        System.out.println(test.countRecords());
         //Intent intent = new Intent(CONTEXT, LoginActivity.class);
         //startActivity(intent);
         //android.os.Process.killProcess(android.os.Process.myPid());*/

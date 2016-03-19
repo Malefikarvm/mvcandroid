@@ -24,10 +24,6 @@ public class Useful  {
         conn = new Connection(context);
         db = conn.getReadableDatabase();
         vs = new ValidateService();
-    } 
-
-    public SQLiteDatabase getDbConn(){
-        return db;
     }
 
     public boolean hasService(){
@@ -42,4 +38,7 @@ public class Useful  {
         return status;
     }
 
+    public SQLiteDatabase dbConn(){
+        return db;
+    }
 }

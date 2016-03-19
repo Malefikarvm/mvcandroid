@@ -12,12 +12,12 @@ public class Connection extends SQLiteOpenHelper {
     private static final String DATABASE_NAME = "mvcstructure.db";
 
     public Connection(Context context) {
-        super(context, DATABASE_NAME, null, 2);
+        super(context, DATABASE_NAME, null, 1);
     }
 
     @Override
     public void onCreate(SQLiteDatabase db) {
-        db.execSQL("CREATE TABLE test(_id INTEGER PRIMARY KEY AUTOINCREMENT, Description BLOB)");
+        db.execSQL("CREATE TABLE test(_id INTEGER PRIMARY KEY AUTOINCREMENT, description TEXT)");
         db.execSQL("CREATE TABLE usuarios(_id INTEGER PRIMARY KEY AUTOINCREMENT, IdUsuario TEXT, Contrasena TEXT)");
     }
 

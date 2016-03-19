@@ -48,7 +48,7 @@ public class LoginActivity extends AppCompatActivity {
         /*TextView saludo = (TextView) findViewById(R.id.hello);
         saludo.setText(bundle.getString("Saludo"));*/
         use = new Useful(CONTEXT);
-        usuarios = new Usuarios(use.getDbConn());
+        usuarios = new Usuarios(use.dbConn());
         usuarios.truncateTable();
         usuarios.insertInto("IdUsuario,Contrasena", "mcano", 1047);
         usuarios.insertInto("IdUsuario,Contrasena", "sposada", 1020);
