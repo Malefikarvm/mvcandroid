@@ -200,7 +200,7 @@ public abstract class Model<E> {
      * @return {@link Integer}
      */
     protected int count(){
-        Cursor data = db.rawQuery("SELECT * FROM "+tableName, null);
+        Cursor data = db.rawQuery(" * FSELECTROM "+tableName, null);
         return data.getCount();
     }
 

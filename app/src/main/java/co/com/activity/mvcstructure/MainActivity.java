@@ -1,7 +1,6 @@
 package co.com.activity.mvcstructure;
 
 import android.content.Context;
-import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.Menu;
@@ -10,7 +9,7 @@ import android.widget.Toast;
 
 import java.util.Hashtable;
 
-import co.com.activity.mvcstructure.Controllers.LoginActivity;
+import co.com.activity.mvcstructure.Components.Api.Api;
 import co.com.activity.mvcstructure.Models.Test;
 import co.com.activity.mvcstructure.Util.Useful;
 
@@ -24,9 +23,9 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        Intent intent = new Intent(CONTEXT, LoginActivity.class);
+        /*Intent intent = new Intent(CONTEXT, LoginActivity.class);
         intent.putExtra("Saludo", "Hola Mundo");
-        startActivity(intent);
+        startActivity(intent);*/
         use = new Useful(CONTEXT);
         test = new Test(use.dbConn());
         test.insertIntoField("description", "some");
@@ -39,6 +38,10 @@ public class MainActivity extends AppCompatActivity {
         test.insertIntoField("description", "love");
 
         test.updateRecord("description", "hello world", 2);
+
+        Api api = new Api("http://unilever.activitymovil.net/api/?", CONTEXT);
+
+        api.callService("fnctn=preguntas_detallado", "tkn=77surAct53", "gln=7701001002804");
         //Intent intent = new Intent(CONTEXT, LoginActivity.class);
         //startActivity(intent);
         //android.os.Process.killProcess(android.os.Process.myPid());*/
